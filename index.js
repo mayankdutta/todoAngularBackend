@@ -1,7 +1,7 @@
 const express = require("express");
-const { PORT } = require("./config/severConfig");
+const { PORT } = require("./src/config/severConfig");
 
-const ApiRoutes = require("./routes/index");
+const ApiRoutes = require("./src/routes/index");
 
 const bodyParser = require("body-parser");
 const { default: mongoose } = require("mongoose");
@@ -14,7 +14,7 @@ const setupAndStartServer = async () => {
 
   app.use("/todo", ApiRoutes); // outermost level mapping.
 
-  app.listen(5000, async () => {
+  app.listen(PORT, async () => {
     console.log(`Server started @port=${PORT}`);
   });
 };
